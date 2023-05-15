@@ -8,22 +8,18 @@
     tools:context=".Just_page">
 
 
-    <TextView
-        android:id="@+id/textView11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="64dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal"
+        >
 
-    <ListView
-        android:id="@+id/lv_main_meals"
-        android:layout_width="409dp"
-        android:layout_height="646dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        <ListView
+            android:id="@+id/lv_main_meals"
+            android:layout_width="409dp"
+            android:layout_height="646dp"
+
+            />
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

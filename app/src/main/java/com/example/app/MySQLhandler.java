@@ -92,17 +92,18 @@ public class MySQLhandler {
             String price = null;
             String personality = null;
             String favorability = null;
-            while (rs.next()) {
-                //Retrieve by column name
-                int id = rs.getInt("id");
-                introduce = rs.getString("introduce");
-                price = rs.getString("price");
-                //Display values
-                System.out.print("ID: " + id);
-                System.out.print(", name: " + introduce);
-                System.out.print(", role: " + price);
-                data = "{ID:" + id + ",personality:" + introduce + ", favorability:" + price + " }";
-            }
+//            while (rs.next()) {
+//                //Retrieve by column name
+//                int id = rs.getInt("id");
+//                introduce = rs.getString("introduce");
+//                price = rs.getString("price");
+//                //Display values
+//                System.out.print("ID: " + id);
+//                System.out.print(", name: " + introduce);
+//                System.out.print(", role: " + price);
+//                data = "{ID:" + id + ",introduce:" + introduce + ", price:" + price + " }";
+//                Log.v("DB",data);
+//            }
         }
         return rs;
     }

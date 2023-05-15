@@ -5,7 +5,7 @@ import android.graphics.Bitmap;
 public class FoodItem {
 
 
-    private Bitmap imageId;
+    private int imageId;
     private String foodName;
     private int foodPrice;
 
@@ -13,17 +13,17 @@ public class FoodItem {
     public FoodItem() {
     }
 
-    public FoodItem(Bitmap imageId, String foodName, int foodPrice) {
+    public FoodItem(int imageId, String foodName, int foodPrice) {
         this.imageId = imageId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
     }
 
-    public Bitmap getImageId() {
+    public int getImageId() {
         return imageId;
     }
 
-    public void setImageId(Bitmap imageId) {
+    public void setImageId(int imageId) {
         this.imageId = imageId;
     }
 
