@@ -107,5 +107,25 @@ public class MySQLhandler {
         }
         return rs;
     }
+    //將使用者帳戶加入資料庫
+    public void CreateUser(String Name, String Password) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
 
+        String url = "jdbc:mysql://34.80.170.197/app";
+        String username = "user3";
+        String password = "123456789";
+
+        try {
+            Connection con = DriverManager.getConnection(url, username, password);
+            String sql = "INSERT INTO `user_data` (`account`,`password`) VALUES ('" + Name + "," + password + "')";
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+            st.close();
+            Log.v("DB", "寫入資料完成：" + Name);
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.e("DB", "寫入資料失敗");
+            Log.e("DB", e.toString());
+        }
+    }
 }
