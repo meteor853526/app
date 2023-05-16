@@ -43,18 +43,18 @@ public class MySQLhandler {
     public void run() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Log.v("DB","???è¼?é©??????????");
+            Log.v("DB","???ï¿½?ï¿½??????????");
         }catch( ClassNotFoundException e) {
-            Log.e("DB","???è¼?é©????å¤±æ??");
+            Log.e("DB","???ï¿½?ï¿½????å¤±ï¿½??");
             return;
         }
 
-        // ?????¥è?????åº?
+        // ?????ï¿½ï¿½?????ï¿½?
         try {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            Log.v("DB","???ç«¯é????¥æ?????");
+            Log.v("DB","???ç«¯ï¿½????ï¿½ï¿½?????");
         }catch(SQLException e) {
-            Log.e("DB","???ç«¯é????¥å¤±???");
+            Log.e("DB","???ç«¯ï¿½????ï¿½å¤±???");
             Log.e("DB", e.toString());
         }
     }
@@ -107,8 +107,8 @@ public class MySQLhandler {
         }
         return rs;
     }
-    //å°?ä½¿ç?¨è??å¸³æ?¶å????¥è?????åº?
-<<<<<<< HEAD
+    //
+
     public void CreateUser(String RegisterName, String RegisterPassword) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 
@@ -118,13 +118,11 @@ public class MySQLhandler {
             Statement st = con.createStatement();
             st.executeUpdate(sql);
             st.close();
-            Log.v("DB", "å¯«å?¥è?????å®????ï¼?" + RegisterName);
-=======
+            Log.v("DB", "write into database" + RegisterName);
 
->>>>>>> ad3c686ede6363f5123d20f984828d4af58b999c
         } catch (SQLException e) {
             e.printStackTrace();
-            Log.e("DB", "å¯«å?¥è?????å¤±æ??");
+            Log.e("DB", "fail write into database");
             Log.e("DB", e.toString());
         }
     }
