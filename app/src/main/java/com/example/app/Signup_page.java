@@ -36,12 +36,9 @@ public class Signup_page extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_signup_page);
-        //將使用者帳戶送入資料庫
+
         sign_email = findViewById(R.id.Signup_email);
         sign_password = findViewById(R.id.Signup_password);
-        sign_login_button = findViewById(R.id.signup_login);
-
-
     }
     //將使用者帳戶送入資料庫
     public void onClickBtn_Signup(View view) {
