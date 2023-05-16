@@ -43,18 +43,18 @@ public class MySQLhandler {
     public void run() {
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Log.v("DB","???�?�??????????");
+            Log.v("DB","load drive success");
         }catch( ClassNotFoundException e) {
-            Log.e("DB","???�?�????失�??");
+            Log.e("DB","load drive fail");
             return;
         }
 
         // ?????��?????�?
         try {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            Log.v("DB","???端�????��?????");
+            Log.v("DB","load drive success");
         }catch(SQLException e) {
-            Log.e("DB","???端�????�失???");
+            Log.e("DB","load drive fail");
             Log.e("DB", e.toString());
         }
     }
