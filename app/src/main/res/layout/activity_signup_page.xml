@@ -56,6 +56,7 @@
         android:layout_marginTop="64dp"
         android:backgroundTint="#E8993B"
         android:text="Sign up!"
+        android:onClick="onClickBtn_Signup"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
