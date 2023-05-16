@@ -48,8 +48,6 @@ public class MySQLhandler {
             Log.e("DB","load drive fail");
             return;
         }
-
-        // ?????��?????�?
         try {
             Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             Log.v("DB","load drive success");
@@ -78,9 +76,6 @@ public class MySQLhandler {
     }
     public ResultSet getData() throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-
-        String url = "jdbc:mysql://34.80.170.197/app";
-        String username = "user3";
         String password = "123456789";
         Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         String sql = "SELECT * FROM food";

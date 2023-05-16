@@ -10,12 +10,13 @@
 
     <ListView
         android:id="@+id/lv_main_meals"
-        android:layout_width="370dp"
-        android:layout_height="490dp"
-
-        android:layout_marginTop="12dp"
+        android:layout_width="405dp"
+        android:layout_height="387dp"
+        android:layout_marginTop="4dp"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.487"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2" />
 
@@ -32,8 +33,9 @@
             android:id="@+id/button3"
             android:layout_width="60dp"
             android:layout_height="50dp"
-
             android:layout_margin="20dp"
+            android:textColor="@color/black"
+            android:backgroundTint="@color/white"
             android:text="@string/back" />
 
         <TextView
@@ -41,22 +43,29 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:paddingLeft="100dp"
-            android:text="food" />
+            android:paddingLeft="80dp"
+            android:textSize="25dp"
+            android:text="Food" />
 
         <TextView
             android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="bottom"
-            android:text="TextView" />
+            android:layout_width="100dp"
+            android:layout_height="37dp"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="50dp"
+            android:gravity="center"
+            android:backgroundTint="#E6A961"
+            android:background="@drawable/button_category"
+            android:text="單點區" />
+
+
     </LinearLayout>
 
     <LinearLayout
-        android:layout_width="410dp"
-        android:layout_height="136dp"
+        android:layout_width="413dp"
+        android:layout_height="161dp"
         android:layout_gravity="center"
+        android:outlineAmbientShadowColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -64,10 +73,10 @@
 
         <TextView
             android:id="@+id/textView12"
-            android:layout_width="wrap_content"
+            android:layout_width="71dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_height="47dp"
-            android:text="TextView" />
+            android:text="已選(等購物車做完)" />
 
         <Button
             android:id="@+id/button4"
@@ -75,8 +84,9 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="200dp"
-
-            android:text="Button" />
+            android:backgroundTint="#E6A961"
+            android:text="加入購物車"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

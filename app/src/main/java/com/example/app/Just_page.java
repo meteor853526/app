@@ -66,13 +66,8 @@ public class Just_page extends AppCompatActivity {
 
 
     private void updateMeals(ResultSet resultSet) throws SQLException, ClassNotFoundException {
-
-        //Cursor cursor = databaseHandler.getAllMeals();
-        //SimpleCursorAdapter adapter = new SimpleCursorAdapter(this,R.layout.meal_item, cursor, new String[] {"name", "price"}, new int[] {R.id.tv_meal_name,R.id.tv_meal_price},0);
         lvMainMeals = findViewById(R.id.lv_main_meals);
         List<FoodItem> foods = new ArrayList<FoodItem>();
-        //ResultSet resultSet = sqLhandler.getData();
-        Log.v("DB","遠端????");
         while (resultSet.next()){
             int id = resultSet.getInt("id");
             String introduce = resultSet.getString("introduce");

@@ -1,5 +1,6 @@
 package com.example.app;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,6 +36,7 @@ public class ListViewAdapter extends BaseAdapter {
         return 0;
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
@@ -50,7 +52,8 @@ public class ListViewAdapter extends BaseAdapter {
         TextView tvFoodName = view.findViewById(R.id.tv_meal_name);
         tvFoodName.setText(food.getFoodName());
         TextView tvFoodPrice = view.findViewById(R.id.tv_meal_price);
-        tvFoodPrice.setText(String.valueOf(food.getFoodPrice()));
+        tvFoodPrice.setText(String.valueOf(food.getFoodPrice()) + "  $");
+        iv.setClipToOutline(true);
         return view;
     }
 }
