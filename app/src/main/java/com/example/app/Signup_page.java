@@ -42,14 +42,26 @@ public class Signup_page extends AppCompatActivity {
         View.OnClickListener onClickListener=new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                try {
-                    String email=sign_email.getText().toString();
-                    String password=sign_password.getText().toString();
-                    mySQLhandler.CreateUser(email,password);
-                } catch (SQLException | ClassNotFoundException e) {
-                    throw new RuntimeException(e);
-                }
-
+                new Thread (new Runnable(){
+                    @Override
+                    public void run() {
+                        mySQLhandler.run();
+                        try {
+                            String email=sign_email.getText().toString();
+                            String password=sign_password.getText().toString();
+                            mySQLhandler.CreateUser(email,password);
+                        } catch (SQLException | ClassNotFoundException e) {
+                            throw new RuntimeException(e);
+                        }
+                    }
+                }).start();
+//                try {
+//                    String email=sign_email.getText().toString();
+//                    String password=sign_password.getText().toString();
+//                    mySQLhandler.CreateUser(email,password);
+//                } catch (SQLException | ClassNotFoundException e) {
+//                    throw new RuntimeException(e);
+//                }
             }
         };
         sign_login_button.setOnClickListener(onClickListener);
