@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!--沒按下的狀態(默認)-->
+    <item android:state_pressed="false">
+        <!--形狀長方形-->
+        <shape android:shape="rectangle">
+            <!--填充顏色為白色-->
+            <solid android:color="@color/lightcyan"/>
+            <!--四周圓角角度4dp-->
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+    <!--點擊按鈕時的樣式-->
+    <item android:state_pressed="true">
+        <shape android:shape="rectangle">
+            <!--改邊界顏色為白色-->
+            <stroke android:width="3dp"
+                android:color="@color/gold"/>
+            <!--改填充色為淺藍-->
+            <solid android:color="@color/gold"/>
+            <corners android:radius="4dp"/>
+        </shape>
+    </item>
+</selector>

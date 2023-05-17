@@ -49,7 +49,9 @@ public class Signup_page extends AppCompatActivity {
                 try {
                     String email=sign_email.getText().toString();
                     String password=sign_password.getText().toString();
-                    mySQLhandler.CreateUser(email,password);
+                    //產生一組hash過後的密碼
+                    String password_hash=BCrypt.hashpw(password,BCrypt.gensalt());
+                    mySQLhandler.CreateUser(email,password_hash);
 
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);

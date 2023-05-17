@@ -121,4 +121,33 @@ public class MySQLhandler {
             Log.e("DB", e.toString());
         }
     }
+    //檢查帳號密碼
+    public Boolean CheckAccount(String account, String password) throws ClassNotFoundException, SQLException {
+        boolean ret=false;
+        Class.forName("com.mysql.jdbc.Driver");
+
+        try {
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            String sql = "Select * From user_data Where account=?";
+            PreparedStatement stmt = con.prepareStatement(sql);
+            stmt.setString(1,account);
+            ResultSet rs=stmt.executeQuery();
+            if(rs.next()){
+                //取出資料庫裡 的hash 密碼
+                String hash_password=rs.getString("password");
+                //確認密碼是否正確
+                ret=CheckPasswordAPI.ckPasswd(password,hash_password);
+            }
+
+
+            Log.v("DB", "get date from database:" + ret);
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.e("DB", "fail to get data from database");
+            Log.e("DB", e.toString());
+        }
+
+        return ret;
+    }
 }

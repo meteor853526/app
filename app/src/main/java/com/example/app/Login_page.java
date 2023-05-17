@@ -5,21 +5,51 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
+import java.sql.SQLException;
+
+
 public class Login_page extends AppCompatActivity {
+    private EditText sign_email;
+    private EditText sign_password;
+    MySQLhandler mySQLhandler = new MySQLhandler();
+
+    public Login_page() throws SQLException {
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login_page);
+        sign_email = findViewById(R.id.Signup_email);
+        sign_password = findViewById(R.id.Signup_password);
     }
 
     public void onClickBtn(View v)
     {
-        Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
-        Intent intent = new Intent(Login_page.this, Category_page.class);
-        startActivity(intent);
+
+        new Thread (new Runnable(){
+            @Override
+            public void run() {
+                mySQLhandler.run();
+                try {
+                    String email=sign_email.getText().toString();
+                    String password=sign_password.getText().toString();
+                    boolean isMember=mySQLhandler.CheckAccount(email,password);
+                    if(isMember){
+                        Intent intent = new Intent(Login_page.this, Category_page.class);
+                        startActivity(intent);
+                    }
+
+
+
+                } catch (SQLException | ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
     }
 
 
