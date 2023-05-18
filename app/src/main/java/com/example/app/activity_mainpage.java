@@ -6,16 +6,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Category_page extends AppCompatActivity {
+public class activity_mainpage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_category_page);
-    }
+        setContentView(R.layout.activity_mainpage);
 
+    }
     public void onClickBtn(View view) {
-        Intent intent = new Intent(Category_page.this, activity_mainpage.class);
+        Intent intent = new Intent(this, Foodpage_1.class);
         startActivity(intent);
     }
+
 }
