@@ -3,8 +3,10 @@
 
         import androidx.appcompat.app.AppCompatActivity;
 
+        import android.content.Intent;
         import android.os.Bundle;
         import android.util.Log;
+        import android.view.View;
         import android.widget.ListView;
 
         import java.sql.ResultSet;
@@ -75,5 +77,13 @@ public class Checkout_page extends AppCompatActivity {
 //        }
 //        ListViewAdapter adapter1 = new ListViewAdapter(this,foods);
 //        lvMainMeals.setAdapter(adapter1);
+    }
+
+    public void onClickToCategory(View view) {
+        Intent intent = new Intent(Checkout_page.this, Category_page.class);
+//        Bundle bundle = new Bundle();
+//        bundle.putString("account",account);
+//        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

@@ -35,4 +35,11 @@ public class Category_page extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+    public void onClickToCheckOutPage(View view) {
+        Intent intent = new Intent(Category_page.this, Checkout_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 }

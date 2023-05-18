@@ -63,7 +63,8 @@
             android:layout_margin="20dp"
             android:backgroundTint="@color/white"
             android:text="@string/back"
-            android:textColor="@color/black" />
+            android:textColor="@color/black"
+            android:onClick="onClickToCategory"/>
 
         <TextView
             android:id="@+id/textView13"

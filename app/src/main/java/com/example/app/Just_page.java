@@ -180,4 +180,9 @@ public class Just_page extends AppCompatActivity {
         }
         tv_currentOrder.setText(str);
     }
+
+    public void onClickToCategory_page(View view) {
+        Intent intent = new Intent(Just_page.this, Category_page.class);
+        startActivity(intent);
+    }
 }
