@@ -15,6 +15,8 @@ public class Login_page extends AppCompatActivity {
     private EditText sign_email;
     private EditText sign_password;
     MySQLhandler mySQLhandler = new MySQLhandler();
+    public boolean a;
+
 
     public Login_page() throws SQLException {
     }
@@ -27,22 +29,31 @@ public class Login_page extends AppCompatActivity {
         sign_password = findViewById(R.id.Signup_password);
     }
 
-    public void onClickBtn(View v)
-    {
+    public void onClickBtn(View v) throws SQLException, ClassNotFoundException {
+        String email=sign_email.getText().toString();
+        String password=sign_password.getText().toString();
+        if(email.isEmpty()||password.isEmpty()){
+            Toast.makeText(this, "請重新輸入帳號密碼", Toast.LENGTH_LONG).show();
+            return;
+        }
+
+
 
         new Thread (new Runnable(){
+
             @Override
             public void run() {
                 mySQLhandler.run();
                 try {
-                    String email=sign_email.getText().toString();
-                    String password=sign_password.getText().toString();
                     boolean isMember=mySQLhandler.CheckAccount(email,password);
+
                     if(isMember){
                         Intent intent = new Intent(Login_page.this, Category_page.class);
                         startActivity(intent);
+                    }else{
+                        Intent intent = new Intent(Login_page.this, Signup_page.class);
+                        startActivity(intent);
                     }
-
 
 
                 } catch (SQLException | ClassNotFoundException e) {
@@ -50,6 +61,7 @@ public class Login_page extends AppCompatActivity {
                 }
             }
         }).start();
+
     }
 
 

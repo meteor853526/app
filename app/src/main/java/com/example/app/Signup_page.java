@@ -12,6 +12,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -42,13 +43,19 @@ public class Signup_page extends AppCompatActivity {
     }
     //將使用者帳戶送入資料庫
     public void onClickBtn_Signup(View view) {
+
+        String email=sign_email.getText().toString();
+        String password=sign_password.getText().toString();
+        if(email.isEmpty()||password.isEmpty()){
+            Toast.makeText(this, "請重新申請帳號密碼", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         new Thread (new Runnable(){
             @Override
             public void run() {
                 mySQLhandler.run();
                 try {
-                    String email=sign_email.getText().toString();
-                    String password=sign_password.getText().toString();
                     //產生一組hash過後的密碼
                     String password_hash=BCrypt.hashpw(password,BCrypt.gensalt());
                     mySQLhandler.CreateUser(email,password_hash);
@@ -58,7 +65,13 @@ public class Signup_page extends AppCompatActivity {
                 }
             }
         }).start();
+
         Intent intent = new Intent(Signup_page.this, Login_page.class );
         startActivity(intent);
     }
+
 }
+
+
+
+
