@@ -152,4 +152,33 @@ public class MySQLhandler {
         return ret;
 
     }
+
+    //加入購物車
+    public void toCart(String meal, int price) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        try {
+
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            String insert = "INSERT INTO car(foodname,price)"
+                    +"values(?,?)";
+
+            PreparedStatement ptmt = con.prepareStatement(insert);
+            ptmt.setString(1,meal);
+            ptmt.setInt(2,price);
+            ptmt.executeUpdate();
+            Log.v("DB", "write into databasedddd");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.e("DB", "fail write into databaseddddd");
+            Log.e("DB", e.toString());
+        }
+
+
+    }
+
 }
+
+
+
+

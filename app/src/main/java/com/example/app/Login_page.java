@@ -15,7 +15,8 @@ public class Login_page extends AppCompatActivity {
     private EditText sign_email;
     private EditText sign_password;
     MySQLhandler mySQLhandler = new MySQLhandler();
-    public boolean a;
+
+
 
 
     public Login_page() throws SQLException {
@@ -27,6 +28,12 @@ public class Login_page extends AppCompatActivity {
         setContentView(R.layout.activity_login_page);
         sign_email = findViewById(R.id.Signup_email);
         sign_password = findViewById(R.id.Signup_password);
+
+
+
+
+
+
     }
 
     public void onClickBtn(View v) throws SQLException, ClassNotFoundException {
@@ -63,6 +70,8 @@ public class Login_page extends AppCompatActivity {
         }).start();
 
     }
+
+
 
 
     public void onClickBtn2(View view) {
