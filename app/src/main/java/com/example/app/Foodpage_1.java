@@ -19,6 +19,7 @@ public class Foodpage_1 extends AppCompatActivity {
     MySQLhandler mySQLhandler = new MySQLhandler();
     private String combo = "combo1";
     private int price=100;
+    private String account;
 
 
 
@@ -30,15 +31,13 @@ public class Foodpage_1 extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_foodpage1);
-
-
-
-
+        Bundle bundle = getIntent().getExtras();
+        account = bundle.getString("account");
     }
 
 
     public void addButton(View v) throws SQLException, ClassNotFoundException {
-
+        System.out.println(account+"3");
 
         new Thread (new Runnable(){
 
@@ -46,7 +45,7 @@ public class Foodpage_1 extends AppCompatActivity {
             public void run() {
                 mySQLhandler.run();
                 try {
-                  mySQLhandler.toCart(combo,price);
+                  mySQLhandler.toCart(account,combo,price);
 
 
                 } catch (SQLException | ClassNotFoundException e) {

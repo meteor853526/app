@@ -55,7 +55,11 @@ public class Login_page extends AppCompatActivity {
                     boolean isMember=mySQLhandler.CheckAccount(email,password);
 
                     if(isMember){
+
                         Intent intent = new Intent(Login_page.this, Category_page.class);
+                        Bundle bundle = new Bundle();
+                        bundle.putString("account",email);
+                        intent.putExtras(bundle);
                         startActivity(intent);
                     }else{
                         Intent intent = new Intent(Login_page.this, Signup_page.class);

@@ -154,17 +154,18 @@ public class MySQLhandler {
     }
 
     //加入購物車
-    public void toCart(String meal, int price) throws ClassNotFoundException, SQLException {
+    public void toCart(String account,String meal, int price) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         try {
 
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            String insert = "INSERT INTO car(foodname,price)"
-                    +"values(?,?)";
+            String insert = "INSERT INTO cart(account,foodname,price)"
+                    +"values(?,?,?)";
 
             PreparedStatement ptmt = con.prepareStatement(insert);
-            ptmt.setString(1,meal);
-            ptmt.setInt(2,price);
+            ptmt.setString(1,account);
+            ptmt.setString(2,meal);
+            ptmt.setInt(3,price);
             ptmt.executeUpdate();
             Log.v("DB", "write into databasedddd");
 
