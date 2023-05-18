@@ -5,10 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#D9D9D9"
+    android:descendantFocusability="blocksDescendants"
     tools:context=".Just_page">
 
 
     <ListView
+        android:descendantFocusability="blocksDescendants"
         android:id="@+id/lv_main_meals"
         android:layout_width="405dp"
         android:layout_height="387dp"
@@ -36,6 +38,7 @@
             android:layout_margin="20dp"
             android:textColor="@color/black"
             android:backgroundTint="@color/white"
+
             android:text="@string/back" />
 
         <TextView
@@ -72,9 +75,9 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <TextView
-            android:id="@+id/textView12"
-            android:layout_width="71dp"
-            android:layout_height="wrap_content"
+            android:id="@+id/tv_currentOrder"
+            android:layout_width="159dp"
+            android:layout_height="64dp"
             android:layout_gravity="center"
             android:text="已選(等購物車做完)" />
 
@@ -83,7 +86,7 @@
             android:layout_width="120dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:layout_marginLeft="200dp"
+            android:layout_marginLeft="130dp"
             android:backgroundTint="#E6A961"
             android:text="加入購物車"
             android:textColor="@color/black" />

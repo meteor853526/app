@@ -178,6 +178,57 @@ public class MySQLhandler {
 
     }
 
+    public ResultSet checkFoodItemExistInShopping_car(String user_account, String food_name) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        //SELECT 1 FROM table WHERE a = 1 AND b = 2 LIMIT 1
+        String sql = "SELECT * FROM shopping_car WHERE user = '" + user_account + "'" + "AND food_name= '" + food_name + "'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        return rs;
+    }
+
+    public ResultSet getUserCurrentOrder(String user_account) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        //SELECT 1 FROM table WHERE a = 1 AND b = 2 LIMIT 1
+        String sql = "SELECT * FROM shopping_car WHERE user = '" + user_account + "'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        return rs;
+    }
+
+    public int addItemCountIntoShopping_car(String user_account, String food_name) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+
+        try {
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            ResultSet resultSet = checkFoodItemExistInShopping_car(user_account, food_name);
+            int count;
+            String sql = "";
+            if(!resultSet.next()){ // empty
+                sql = "INSERT INTO shopping_car(user,food_name,count) VALUES ('" + user_account + "','" + food_name + "'," + 1 + ")";
+                return 1;
+            }else{   // add
+                int set = resultSet.getInt("count") + 1;
+                sql = "UPDATE shopping_car SET count = " + set + " WHERE `user` = '" + user_account + "' AND food_name = '" + food_name + "'";
+                count = set;
+            }
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+            st.close();
+
+            Log.v("DB", "write into database" + user_account);
+            return count;
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.e("DB", "fail write into database");
+            Log.e("DB", e.toString());
+        }
+        return 0;
+    }
+
 }
 
 
