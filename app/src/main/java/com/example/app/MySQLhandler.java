@@ -1,5 +1,6 @@
 package com.example.app;
 
+import android.content.Intent;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -175,6 +176,7 @@ public class MySQLhandler {
             Log.e("DB", "fail write into databaseddddd");
             Log.e("DB", e.toString());
         }
+
 
 
     }
