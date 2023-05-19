@@ -173,7 +173,7 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView4" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/sub_Btn"
         android:layout_width="133dp"
         android:layout_height="156dp"
         android:layout_marginStart="44dp"
@@ -213,10 +213,10 @@
         android:layout_width="114dp"
         android:layout_height="109dp"
         android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="@+id/sub_Btn"
         app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="@+id/button10"
-        app:layout_constraintTop_toTopOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="@+id/sub_Btn"
+        app:layout_constraintTop_toTopOf="@+id/sub_Btn"
         app:srcCompat="@drawable/suggest" />
 
     <TextView
@@ -225,9 +225,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:text="主廚推薦"
-        app:layout_constraintEnd_toEndOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="@+id/sub_Btn"
         app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="@+id/sub_Btn"
         app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
     <Button

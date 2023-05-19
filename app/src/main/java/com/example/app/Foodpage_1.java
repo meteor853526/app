@@ -2,19 +2,14 @@ package com.example.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.annotation.SuppressLint;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
-import android.widget.ImageButton;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 public class Foodpage_1 extends AppCompatActivity {
 
@@ -22,42 +17,56 @@ public class Foodpage_1 extends AppCompatActivity {
     private String combo = "combo1";
     private int price=100;
     private String account;
-    private ImageView addButton, subButton;
-    private int count=1;
 
-
-
+    private int count;
+    private Button subBtn, addBtn;
+    private TextView tvNumber, tvPrice;
+    int totalprice;
 
     public Foodpage_1() throws SQLException {
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-
         setContentView(R.layout.activity_foodpage1);
+        addBtn=findViewById(R.id.add);
+        subBtn=findViewById(R.id.sub_Btn);
+        tvNumber=findViewById(R.id.tv_Number);
+        tvPrice=findViewById(R.id.tv_Price);
         Bundle bundle = getIntent().getExtras();
         account = bundle.getString("account");
+        count=0;
+        View.OnClickListener onClickListener_1=new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count+=1;
+                tvNumber.setText(""+count);
+                totalprice=price*count;
+                tvPrice.setText("total: $"+totalprice);
 
+            }
+        };
+        addBtn.setOnClickListener(onClickListener_1);
 
+        View.OnClickListener onClickListener_2=new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                count-=1;
+                if (count<1){
+                    count=1;
+                };
+                totalprice=price*count;
+                tvPrice.setText("total: $"+totalprice);
+                tvNumber.setText(""+count);
+            }
+        };
+        subBtn.setOnClickListener(onClickListener_2);
 
     }
-    public void addBtn(View v) throws SQLException, ClassNotFoundException {
-        count+=1;
-        Toast.makeText(this, "Clicked on addButton"+count, Toast.LENGTH_LONG).show();
-    }
-    public void subBtn(View v) throws SQLException, ClassNotFoundException {
-        count-=1;
-        Toast.makeText(this, "Clicked on subButton"+count, Toast.LENGTH_LONG).show();
-    }
 
-
-
-
-    public void addButton(View v) throws SQLException, ClassNotFoundException {
+    public void addtoCart(View v) throws SQLException, ClassNotFoundException {
         System.out.println(account+"3");
 
         new Thread (new Runnable(){
@@ -66,7 +75,7 @@ public class Foodpage_1 extends AppCompatActivity {
             public void run() {
                 mySQLhandler.run();
                 try {
-                  mySQLhandler.toCart(account,combo,price);
+                  mySQLhandler.toCart(account,combo,count,totalprice);
 
 
                 } catch (SQLException | ClassNotFoundException e) {
