@@ -83,7 +83,7 @@ public class Foodpage_1 extends AppCompatActivity {
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 }
-            }
+            }///
         }).start();
         Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
 
