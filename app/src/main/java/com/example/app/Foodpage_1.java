@@ -2,6 +2,7 @@ package com.example.app;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -18,10 +19,10 @@ public class Foodpage_1 extends AppCompatActivity {
     private int price=100;
     private String account;
 
-    private int count;
+    private int count=1;
     private Button subBtn, addBtn;
     private TextView tvNumber, tvPrice;
-    int totalprice;
+    int totalprice=100;
 
     public Foodpage_1() throws SQLException {
 
@@ -37,7 +38,6 @@ public class Foodpage_1 extends AppCompatActivity {
         tvPrice=findViewById(R.id.tv_Price);
         Bundle bundle = getIntent().getExtras();
         account = bundle.getString("account");
-        count=0;
         View.OnClickListener onClickListener_1=new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -69,6 +69,7 @@ public class Foodpage_1 extends AppCompatActivity {
     public void addtoCart(View v) throws SQLException, ClassNotFoundException {
         System.out.println(account+"3");
 
+
         new Thread (new Runnable(){
 
             @Override
@@ -78,11 +79,14 @@ public class Foodpage_1 extends AppCompatActivity {
                   mySQLhandler.toCart(account,combo,count,totalprice);
 
 
+
                 } catch (SQLException | ClassNotFoundException e) {
                     throw new RuntimeException(e);
                 }
             }
         }).start();
         Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
+
+
     }
 }
