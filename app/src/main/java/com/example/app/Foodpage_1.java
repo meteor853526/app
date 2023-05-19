@@ -85,7 +85,16 @@ public class Foodpage_1 extends AppCompatActivity {
                 }
             }///
         }).start();
-        Toast.makeText(this, "Clicked on Button", Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "加入購物車成功", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(Foodpage_1.this, meal_Select.class);
+        startActivity(intent);
+
+
+    }
+    public void backBtn(View v) throws SQLException, ClassNotFoundException {
+
+        Intent intent = new Intent(Foodpage_1.this, Category_page.class);
+        startActivity(intent);
 
 
     }

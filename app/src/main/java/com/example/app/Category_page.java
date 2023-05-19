@@ -21,7 +21,7 @@ public class Category_page extends AppCompatActivity {
 
     public void onClickBtn(View view) {
         System.out.println(account+"1");
-        Intent intent = new Intent(Category_page.this, activity_mainpage.class);
+        Intent intent = new Intent(Category_page.this, meal_Select.class);
         Bundle bundle = new Bundle();
         bundle.putString("account",account);
         intent.putExtras(bundle);
