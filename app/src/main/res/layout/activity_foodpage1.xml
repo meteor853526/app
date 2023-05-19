@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="#D9D9D9"
     tools:context=".Foodpage_1">
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
@@ -205,42 +206,111 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
+
     <TextView
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="12dp"
         android:background="@drawable/line"
         android:text="套餐價格：$130"
         android:textSize="14sp"
         app:layout_constraintStart_toStartOf="@+id/imageView10"
         app:layout_constraintTop_toBottomOf="@+id/view" />
 
-
-    <Button
-        android:id="@+id/signup_login"
-        android:layout_width="150dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="52dp"
-        android:backgroundTint="#E8993B"
-        android:onClick="addButton"
-        android:text="加入購物車"
-        app:layout_constraintEnd_toEndOf="@+id/imageView13"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="parent"
-
-        app:layout_constraintTop_toBottomOf="@+id/view" />
-
     <TextView
         android:id="@+id/textView10"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:text="限時特價: $100"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="@+id/textView9"
         app:layout_constraintTop_toBottomOf="@+id/textView9" />
+
+    <TextView
+        android:id="@+id/textView22"
+        android:layout_width="99dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="124dp"
+        android:layout_marginTop="12dp"
+        android:text="total: $100"
+        android:textSize="16dp"
+        app:layout_constraintStart_toEndOf="@+id/textView9"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="142dp"
+        android:layout_height="48dp"
+        android:layout_gravity="center"
+        android:layout_marginStart="104dp"
+        android:layout_marginTop="88dp"
+        android:backgroundTint="#E6A961"
+        android:text="加入購物車"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="@+id/button12"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/textView10"
+        app:layout_constraintTop_toBottomOf="@+id/view" />
+
+    <Button
+        android:id="@+id/button12"
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+        android:background="@drawable/top_button_color"
+        android:text=""
+        android:textColor="@drawable/button_font_color"
+        android:onClick="addBtn"
+        app:backgroundTint="@null"
+        app:layout_constraintEnd_toEndOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <Button
+        android:id="@+id/button10"
+        android:layout_width="25dp"
+        android:layout_height="26dp"
+        android:background="@drawable/top_button_color"
+        android:text=""
+        android:textColor="@drawable/button_font_color"
+        android:onClick="subBtn"
+        app:backgroundTint="@null"
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toTopOf="@+id/textView24" />
+
+    <TextView
+        android:id="@+id/textView24"
+        android:layout_width="34dp"
+        android:layout_height="30dp"
+        android:text="1"
+        android:textAlignment="center"
+        android:textSize="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/textView22"
+        app:layout_constraintStart_toStartOf="@+id/textView22"
+        app:layout_constraintTop_toBottomOf="@+id/textView22" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="14dp"
+        android:layout_height="71dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button12"
+        app:layout_constraintEnd_toEndOf="@+id/button12"
+        app:layout_constraintHorizontal_bias="0.454"
+        app:layout_constraintStart_toStartOf="@+id/button12"
+        app:layout_constraintTop_toTopOf="@+id/button12"
+        app:srcCompat="@drawable/add" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="15dp"
+        android:layout_height="29dp"
+        app:layout_constraintBottom_toBottomOf="@+id/button10"
+        app:layout_constraintEnd_toEndOf="@+id/button10"
+        app:layout_constraintStart_toStartOf="@+id/button10"
+        app:layout_constraintTop_toTopOf="@+id/button10"
+        app:srcCompat="@drawable/sub" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

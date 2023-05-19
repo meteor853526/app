@@ -7,6 +7,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import java.sql.Connection;
@@ -20,6 +22,9 @@ public class Foodpage_1 extends AppCompatActivity {
     private String combo = "combo1";
     private int price=100;
     private String account;
+    private ImageView addButton, subButton;
+    private int count=1;
+
 
 
 
@@ -27,13 +32,29 @@ public class Foodpage_1 extends AppCompatActivity {
 
     }
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
         setContentView(R.layout.activity_foodpage1);
         Bundle bundle = getIntent().getExtras();
         account = bundle.getString("account");
+
+
+
     }
+    public void addBtn(View v) throws SQLException, ClassNotFoundException {
+        count+=1;
+        Toast.makeText(this, "Clicked on addButton"+count, Toast.LENGTH_LONG).show();
+    }
+    public void subBtn(View v) throws SQLException, ClassNotFoundException {
+        count-=1;
+        Toast.makeText(this, "Clicked on subButton"+count, Toast.LENGTH_LONG).show();
+    }
+
+
 
 
     public void addButton(View v) throws SQLException, ClassNotFoundException {
