@@ -6,16 +6,14 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import java.sql.SQLException;
 
-public class Foodpage_1 extends AppCompatActivity {
-
+public class Foodpage3 extends AppCompatActivity {
     MySQLhandler mySQLhandler = new MySQLhandler();
-    private String combo = "combo1";
+    private String combo = "combo3";
     private int price=100;
     private String account;
 
@@ -24,20 +22,21 @@ public class Foodpage_1 extends AppCompatActivity {
     private TextView tvNumber, tvPrice;
     int totalprice=100;
 
-    public Foodpage_1() throws SQLException {
-
+    public Foodpage3() throws SQLException {
     }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_foodpage1);
+        setContentView(R.layout.activity_foodpage3);
+
         addBtn=findViewById(R.id.add);
         subBtn=findViewById(R.id.sub_Btn);
         tvNumber=findViewById(R.id.tv_Number);
         tvPrice=findViewById(R.id.tv_Price);
         Bundle bundle = getIntent().getExtras();
         account = bundle.getString("account");
+
         View.OnClickListener onClickListener_1=new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,9 +62,7 @@ public class Foodpage_1 extends AppCompatActivity {
             }
         };
         subBtn.setOnClickListener(onClickListener_2);
-
     }
-
     public void addtoCart(View v) throws SQLException, ClassNotFoundException {
         System.out.println(account+"3");
 
@@ -76,7 +73,7 @@ public class Foodpage_1 extends AppCompatActivity {
             public void run() {
                 mySQLhandler.run();
                 try {
-                  mySQLhandler.toCart(account,combo,count,totalprice);
+                    mySQLhandler.toCart(account,combo,count,totalprice);
 
 
 
@@ -90,7 +87,7 @@ public class Foodpage_1 extends AppCompatActivity {
     }
     public void backBtn(View v) throws SQLException, ClassNotFoundException {
 
-        Intent intent = new Intent(Foodpage_1.this, Category_page.class);
+        Intent intent = new Intent(Foodpage3.this, Category_page.class);
         startActivity(intent);
 
 

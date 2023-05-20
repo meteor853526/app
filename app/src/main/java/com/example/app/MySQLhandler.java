@@ -104,8 +104,7 @@ public class MySQLhandler {
         }
         return rs;
     }
-    //
-
+    //建立使用者
     public void CreateUser(String RegisterName, String RegisterPassword) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 

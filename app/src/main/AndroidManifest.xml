@@ -16,7 +16,10 @@
         android:theme="@style/Theme.App"
         tools:targetApi="31">
         <activity
-            android:name=".meal_Select"
+            android:name=".Foodpage3"
+            android:exported="false" />
+        <activity
+            android:name=".Foodpage2"
             android:exported="false" />
         <activity
             android:name=".Checkout_page"

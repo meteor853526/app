@@ -66,7 +66,7 @@
         android:id="@+id/button3"
         android:layout_width="92dp"
         android:layout_height="125dp"
-
+        android:onClick="onClickBtn_2"
         android:layout_marginStart="40dp"
         android:background="@drawable/main_page_button2"
         android:shadowColor="#EAE1E1"
@@ -84,6 +84,7 @@
         android:layout_marginStart="40dp"
         android:background="@drawable/main_page_button3"
         android:text="1"
+        android:onClick="onClickBtn_3"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="@+id/button3"
         app:layout_constraintStart_toEndOf="@+id/button3"

@@ -26,4 +26,21 @@ public class activity_mainpage extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void onClickBtn_2(View view) {
+        System.out.println(account+"2_2");
+        Intent intent = new Intent(this, Foodpage2.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void onClickBtn_3(View view) {
+        System.out.println(account+"2_3");
+        Intent intent = new Intent(this, Foodpage3.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
 }
