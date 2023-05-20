@@ -53,7 +53,7 @@ public class ListViewAdapter extends BaseAdapter {
         tvFoodName.setText(food.getFoodName());
         TextView tvFoodPrice = view.findViewById(R.id.tv_meal_price);
         TextView tvCount = view.findViewById(R.id.tv_count);
-        tvCount.setText(Integer.toString(food.getCount()));
+        tvCount.setText(food.getCount());
         tvFoodPrice.setText(String.valueOf(food.getFoodPrice()) + "  $");
         iv.setClipToOutline(true);
         return view;

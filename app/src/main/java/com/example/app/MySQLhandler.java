@@ -82,27 +82,7 @@ public class MySQLhandler {
         Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         String sql = "SELECT * FROM food";
         Statement getData = conn.createStatement();
-        ResultSet rs = getData.executeQuery(sql);
-        String data = null;
-        {
-            String introduce = null;
-            String price = null;
-            String personality = null;
-            String favorability = null;
-//            while (rs.next()) {
-//                //Retrieve by column name
-//                int id = rs.getInt("id");
-//                introduce = rs.getString("introduce");
-//                price = rs.getString("price");
-//                //Display values
-//                System.out.print("ID: " + id);
-//                System.out.print(", name: " + introduce);
-//                System.out.print(", role: " + price);
-//                data = "{ID:" + id + ",introduce:" + introduce + ", price:" + price + " }";
-//                Log.v("DB",data);
-//            }
-        }
-        return rs;
+        return getData.executeQuery(sql);
     }
     //
 
@@ -201,7 +181,7 @@ public class MySQLhandler {
         return rs;
     }
 
-    public int addItemCountIntoShopping_car(String user_account, String food_name) throws ClassNotFoundException, SQLException {
+    public void addItemCountIntoShopping_car(String user_account, String food_name,int food_price) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
 
         try {
@@ -210,8 +190,7 @@ public class MySQLhandler {
             int count;
             String sql = "";
             if(!resultSet.next()){ // empty
-                sql = "INSERT INTO shopping_car(user,food_name,count) VALUES ('" + user_account + "','" + food_name + "'," + 1 + ")";
-                return 1;
+                sql = "INSERT INTO shopping_car(user,food_name,price,count) VALUES ('" + user_account + "','" + food_name + "'," + food_price + "," + 1 + ")";
             }else{   // add
                 int set = resultSet.getInt("count") + 1;
                 sql = "UPDATE shopping_car SET count = " + set + " WHERE `user` = '" + user_account + "' AND food_name = '" + food_name + "'";
@@ -222,14 +201,42 @@ public class MySQLhandler {
             st.close();
 
             Log.v("DB", "write into database" + user_account);
-            return count;
 
         } catch (SQLException e) {
             e.printStackTrace();
             Log.e("DB", "fail write into database");
             Log.e("DB", e.toString());
         }
-        return 0;
+
+    }
+
+    public void minusItemCountIntoShopping_car(String user_account, String food_name,int food_count) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+
+        try {
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            ResultSet resultSet = checkFoodItemExistInShopping_car(user_account, food_name);
+            int count;
+            String sql = "";
+            food_count -= 1;
+            if(food_count == 0){ // empty
+                sql = "DELETE FROM shopping_car WHERE `user` = '" + user_account + "' AND food_name = '" + food_name + "'";
+            }else{   // add
+
+                sql = "UPDATE shopping_car SET count = " + food_count + " WHERE `user` = '" + user_account + "' AND food_name = '" + food_name + "'";
+            }
+            Statement st = con.createStatement();
+            st.executeUpdate(sql);
+            st.close();
+
+            Log.v("DB", "write into database" + user_account);
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.e("DB", "fail write into database");
+            Log.e("DB", e.toString());
+        }
     }
 
 }

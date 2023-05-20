@@ -8,22 +8,22 @@ public class FoodItem {
     private int imageId;
     private String foodName;
     private int foodPrice;
-    private int count;
+    private String count;
 
     public FoodItem() {
     }
 
-    public FoodItem(int imageId, String foodName, int foodPrice,int count) {
+    public FoodItem(int imageId, String foodName, int foodPrice,String count) {
         this.imageId = imageId;
         this.foodName = foodName;
         this.foodPrice = foodPrice;
         this.count = count;
     }
-    public int getCount() {
+    public String getCount() {
         return count;
     }
 
-    public void setCount(int count) {
+    public void setCount(String count) {
         this.count = count;
     }
 

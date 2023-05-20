@@ -79,6 +79,7 @@
             android:layout_width="159dp"
             android:layout_height="64dp"
             android:layout_gravity="center"
+            android:paddingLeft="30dp"
             android:text="已選(等購物車做完)" />
 
         <Button
