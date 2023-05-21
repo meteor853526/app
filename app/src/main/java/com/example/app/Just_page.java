@@ -176,4 +176,5 @@ public class Just_page extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
 }

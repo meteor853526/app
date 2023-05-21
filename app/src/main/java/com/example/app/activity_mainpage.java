@@ -42,5 +42,19 @@ public class activity_mainpage extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+    public void onClickToCategory_page(View view) {
+        Intent intent = new Intent(activity_mainpage.this, Category_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void onClickToCheckOutPage(View view) {
+        Intent intent = new Intent(activity_mainpage.this, Checkout_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 
 }

@@ -34,12 +34,12 @@
         <Button
             android:id="@+id/button3"
             android:layout_width="60dp"
-            android:layout_height="50dp"
+            android:layout_height="wrap_content"
             android:layout_margin="20dp"
-            android:textColor="@color/black"
             android:backgroundTint="@color/white"
             android:onClick="onClickToCategory_page"
-            android:text="@string/back" />
+            android:text="@string/back"
+            android:textColor="@color/black" />
 
         <TextView
             android:id="@+id/textView13"

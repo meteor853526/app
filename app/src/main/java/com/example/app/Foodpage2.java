@@ -88,12 +88,19 @@ public class Foodpage2 extends AppCompatActivity {
 
 
     }
-    public void backBtn(View v) throws SQLException, ClassNotFoundException {
-
+    public void onClickToCategory_page(View view) {
         Intent intent = new Intent(Foodpage2.this, Category_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
         startActivity(intent);
-
-
+    }
+    public void onClickToCheckOutPage(View view) {
+        Intent intent = new Intent(Foodpage2.this, Checkout_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 }

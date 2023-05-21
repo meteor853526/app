@@ -23,30 +23,36 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+        android:id="@+id/button3"
+        android:layout_width="60dp"
         android:layout_height="wrap_content"
+        android:layout_margin="20dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="80dp"
-        android:background="@drawable/top_button_color"
-        android:text="Back"
-        android:textColor="@drawable/button_font_color"
-        app:backgroundTint="@null"
+        android:layout_marginEnd="64dp"
+        android:layout_marginBottom="4dp"
+        android:backgroundTint="@color/white"
+        android:onClick="onClickToCategory_page"
+        android:text="@string/back"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/imageView6"
         app:layout_constraintEnd_toStartOf="@+id/textView"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
-        android:layout_marginTop="4dp"
-        android:background="@drawable/top_button_color"
-        android:text="Fiter"
-        android:textColor="@drawable/button_font_color"
-        app:backgroundTint="@null"
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="57dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:onClick="onClickToCheckOutPage"
+        app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.901"
         app:layout_constraintStart_toEndOf="@+id/textView"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/shoppingcar" />
 
     <TextView
         android:id="@+id/textView2"

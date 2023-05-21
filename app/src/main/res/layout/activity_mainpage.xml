@@ -6,42 +6,78 @@
     android:layout_height="match_parent"
     android:background="#D9D9D9"
     tools:context=".activity_mainpage">
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="64dp"
+        android:backgroundTint="@color/white"
+        android:onClick="onClickToCategory_page"
+        android:text="@string/back"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/textView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.375" />
+
+    <ImageView
+        android:id="@+id/imageView123"
+        android:layout_width="57dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="20dp"
+        android:onClick="onClickToCheckOutPage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.941"
+        app:layout_constraintStart_toEndOf="@+id/button"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/shoppingcar" />
+
     <TextView
         android:id="@+id/textView11"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:layout_marginEnd="68dp"
         android:text="Simple way to find "
         android:textColor="#A0522D"
         android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.136"
+        app:layout_constraintEnd_toStartOf="@+id/imageView16"
+        app:layout_constraintHorizontal_bias="0.903"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/textView12"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="8dp"
         android:text="quality food"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="@+id/textView11"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
     <Button
         android:id="@+id/button2"
         android:layout_width="92dp"
         android:layout_height="126dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="28dp"
         android:background="@drawable/main_page_button1"
-        android:shadowColor="#EAE1E1"
         android:onClick="onClickBtn"
-        android:text="1"
+        android:shadowColor="#EAE1E1"
 
+        android:text="1"
         android:textColorLink="#E8E0E0"
         app:backgroundTint="@null"
-        app:layout_constraintStart_toStartOf="@+id/textView12"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView12" />
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="76dp"
@@ -51,6 +87,7 @@
         app:layout_constraintStart_toStartOf="@+id/button2"
         app:layout_constraintTop_toTopOf="@+id/button2"
         app:srcCompat="@drawable/small" />
+
     <TextView
         android:id="@+id/textView13"
         android:layout_width="wrap_content"
@@ -62,13 +99,14 @@
         app:layout_constraintStart_toStartOf="@+id/imageView"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
         app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/button3"
         android:layout_width="92dp"
         android:layout_height="125dp"
-        android:onClick="onClickBtn_2"
-        android:layout_marginStart="40dp"
+        android:layout_marginStart="48dp"
         android:background="@drawable/main_page_button2"
+        android:onClick="onClickBtn_2"
         android:shadowColor="#EAE1E1"
         android:text="1"
         android:textColorLink="#E8E0E0"
@@ -77,19 +115,22 @@
         app:layout_constraintStart_toEndOf="@+id/button2"
         app:layout_constraintTop_toTopOf="@+id/button2"
         app:layout_constraintVertical_bias="0.0" />
+
     <Button
         android:id="@+id/button8"
         android:layout_width="92dp"
         android:layout_height="123dp"
         android:layout_marginStart="40dp"
         android:background="@drawable/main_page_button3"
-        android:text="1"
         android:onClick="onClickBtn_3"
+        android:text="1"
         app:backgroundTint="@null"
         app:layout_constraintBottom_toBottomOf="@+id/button3"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/button3"
         app:layout_constraintTop_toTopOf="@+id/button3"
         app:layout_constraintVertical_bias="0.0" />
+
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="76dp"
@@ -231,40 +272,17 @@
         app:layout_constraintStart_toStartOf="@+id/sub_Btn"
         app:layout_constraintTop_toBottomOf="@+id/imageView11" />
 
-    <Button
-        android:id="@+id/button11"
-        android:layout_width="59dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="88dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/cart_background"
-        android:text="1"
-        android:textColor="@drawable/cart_background"
-        app:backgroundTint="@null"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
-        app:layout_constraintStart_toEndOf="@+id/textView11"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/imageView16"
         android:layout_width="104dp"
         android:layout_height="40dp"
-        android:layout_marginStart="144dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginStart="156dp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.562"
         app:layout_constraintStart_toEndOf="@+id/textView12"
-        app:layout_constraintTop_toBottomOf="@+id/button11"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/combo_font" />
 
-    <ImageView
-        android:id="@+id/imageView19"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        app:layout_constraintEnd_toEndOf="@+id/button11"
-        app:layout_constraintHorizontal_bias="0.592"
-        app:layout_constraintStart_toStartOf="@+id/button11"
-        app:layout_constraintTop_toTopOf="@+id/button11"
-        app:srcCompat="@drawable/shopping_cart" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
