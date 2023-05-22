@@ -98,7 +98,6 @@ public class Just_page extends AppCompatActivity {
                             current_order = sqLhandler.getUserCurrentOrder(username);
                             //tv_count
                             runOnUiThread(new Runnable() {
-                                @SuppressLint("SetTextI18n")
                                 @Override
                                 public void run() {
                                     sqLhandler.run();
@@ -162,6 +161,7 @@ public class Just_page extends AppCompatActivity {
         while(currentOrder.next()){
             //tv_currentOrder
             String food_name = currentOrder.getString("food_name");
+            Log.v("DB",food_name);
             int count = currentOrder.getInt("count");
 
             str.append(food_name).append(" x ").append(Integer.toString(count)).append(",");

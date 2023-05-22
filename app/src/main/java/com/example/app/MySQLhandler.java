@@ -11,7 +11,7 @@ public class MySQLhandler {
     private String message = null;
     private int id = 0;
 
-    private final String URL="jdbc:mysql://34.80.170.197:3306/app";
+    private final String URL="jdbc:mysql://34.80.170.197:3306/app2?useUnicode=yes&characterEncoding=UTF-8";
 
     private final String USERNAME="user3";
 
@@ -182,17 +182,17 @@ public class MySQLhandler {
 
     public void addItemCountIntoShopping_car(String user_account, String food_name,int food_price) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
-
+        Log.v("DB", "jyujyujyuj" + food_name);
         try {
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
             ResultSet resultSet = checkFoodItemExistInShopping_car(user_account, food_name);
             int count;
             String sql = "";
             if(!resultSet.next()){ // empty
-                sql = "INSERT INTO shopping_car(user,food_name,price,count) VALUES ('" + user_account + "','" + food_name + "'," + food_price + "," + 1 + ")";
+                sql = "INSERT INTO shopping_car(user,food_name,price,count) VALUES ('" + user_account + "',N'" + food_name + "'," + food_price + "," + 1 + ")";
             }else{   // add
                 int set = resultSet.getInt("count") + 1;
-                sql = "UPDATE shopping_car SET count = " + set + " WHERE `user` = '" + user_account + "' AND food_name = '" + food_name + "'";
+                sql = "UPDATE shopping_car SET count = " + set + " WHERE `user` = '" + user_account + "' AND food_name = N'" + food_name + "'";
                 count = set;
             }
             Statement st = con.createStatement();
