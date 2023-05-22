@@ -13,7 +13,7 @@ public class MySQLhandler {
 
     private final String URL="jdbc:mysql://34.80.170.197:3306/app2?useUnicode=yes&characterEncoding=UTF-8";
 
-    private final String USERNAME="user3";
+    private final String USERNAME="user3";///
 
     private final String PASSWORD="123456789";
 
