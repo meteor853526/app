@@ -15,7 +15,7 @@ import java.sql.SQLException;
 public class Foodpage_1 extends AppCompatActivity {
 
     MySQLhandler mySQLhandler = new MySQLhandler();
-    private String combo = "combo1";
+    private String combo = "西式摩登套餐";
     private int price=100;
     private String account;
 
@@ -76,7 +76,7 @@ public class Foodpage_1 extends AppCompatActivity {
             public void run() {
                 mySQLhandler.run();
                 try {
-                  mySQLhandler.toCart(account,combo,count,totalprice);
+                  mySQLhandler.toCart(account,combo,count,price);
 
 
 

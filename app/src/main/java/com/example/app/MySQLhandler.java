@@ -139,14 +139,14 @@ public class MySQLhandler {
         try {
 
             Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-            String insert = "INSERT INTO cart(account,foodname,count,price)"
+            String insert = "INSERT INTO shopping_car(user,food_name,price,count)"
                     +"values(?,?,?,?)";
 
             PreparedStatement ptmt = con.prepareStatement(insert);
             ptmt.setString(1,account);
             ptmt.setString(2,meal);
-            ptmt.setInt(3,number);
-            ptmt.setInt(4,price);
+            ptmt.setInt(3,price);
+            ptmt.setInt(4,number);
             ptmt.executeUpdate();
             Log.v("DB", "write into databasedddd");
 

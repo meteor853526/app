@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class Foodpage3 extends AppCompatActivity {
     MySQLhandler mySQLhandler = new MySQLhandler();
-    private String combo = "combo3";
+    private String combo = "小資活力套餐";
     private int price=100;
     private String account;
 
@@ -73,7 +73,7 @@ public class Foodpage3 extends AppCompatActivity {
             public void run() {
                 mySQLhandler.run();
                 try {
-                    mySQLhandler.toCart(account,combo,count,totalprice);
+                    mySQLhandler.toCart(account,combo,count,price);
 
 
 
