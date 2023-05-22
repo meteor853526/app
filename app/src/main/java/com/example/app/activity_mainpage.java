@@ -26,6 +26,13 @@ public class activity_mainpage extends AppCompatActivity {
         MediaController mediaController=new MediaController(this);
         videoView.setMediaController(mediaController);
         mediaController.setAnchorView(videoView);
+        videoView.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
+            @Override
+            public void onPrepared(MediaPlayer mediaPlayer) {
+                mediaPlayer.start();
+            }
+        });
+
         //設置循環播放
         videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
