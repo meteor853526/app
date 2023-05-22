@@ -66,7 +66,7 @@
         android:id="@+id/button2"
         android:layout_width="92dp"
         android:layout_height="126dp"
-        android:layout_marginStart="28dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="28dp"
         android:background="@drawable/main_page_button1"
         android:onClick="onClickBtn"
@@ -188,12 +188,11 @@
 
     <VideoView
         android:id="@+id/Vd_View"
-        android:layout_width="377dp"
+        android:layout_width="0dp"
         android:layout_height="296dp"
-        android:layout_marginTop="68dp"
-        app:layout_constraintEnd_toEndOf="@+id/imageView16"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/button"
+        android:layout_marginTop="64dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/button3" />
 
 
