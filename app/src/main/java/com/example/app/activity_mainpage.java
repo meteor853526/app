@@ -3,8 +3,12 @@ package com.example.app;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.MediaController;
+import android.widget.VideoView;
 
 public class activity_mainpage extends AppCompatActivity {
     private String account;
@@ -15,6 +19,21 @@ public class activity_mainpage extends AppCompatActivity {
         setContentView(R.layout.activity_mainpage);
         Bundle bundle = getIntent().getExtras();
         account = bundle.getString("account");
+        VideoView videoView=findViewById(R.id.Vd_View);
+        String videoPath="android.resource://"+getPackageName()+"/"+R.raw.breakfast;
+        Uri uri= Uri.parse(videoPath);
+        videoView.setVideoURI(uri);
+        MediaController mediaController=new MediaController(this);
+        videoView.setMediaController(mediaController);
+        mediaController.setAnchorView(videoView);
+        //設置循環播放
+        videoView.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mediaPlayer.start();
+                mediaPlayer.setLooping(true);
+            }
+        });
 
     }
     public void onClickBtn(View view) {

@@ -175,104 +175,6 @@
         app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
     <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="35dp"
-        android:layout_height="36dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="40dp"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/button2"
-        app:srcCompat="@android:drawable/ic_search_category_default" />
-
-    <EditText
-        android:id="@+id/editTextText"
-        android:layout_width="0dp"
-        android:layout_height="38dp"
-        android:layout_marginStart="80dp"
-        android:layout_marginEnd="32dp"
-        android:ems="10"
-        android:hint="   search Food..."
-        android:inputType="text"
-        android:textSize="10sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
-
-    <Button
-        android:id="@+id/button9"
-        android:layout_width="134dp"
-        android:layout_height="164dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="92dp"
-        android:background="@drawable/main_page_button"
-        android:text="1"
-        android:textColor="@drawable/main_page_button"
-        app:backgroundTint="@null"
-        app:layout_constraintStart_toStartOf="@+id/button2"
-        app:layout_constraintTop_toBottomOf="@+id/imageView4" />
-
-    <Button
-        android:id="@+id/sub_Btn"
-        android:layout_width="133dp"
-        android:layout_height="156dp"
-        android:layout_marginStart="44dp"
-        android:layout_marginBottom="56dp"
-        android:background="@drawable/main_page_button"
-        android:text="1"
-        app:backgroundTint="@null"
-        app:layout_constraintBottom_toBottomOf="@+id/button9"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.218"
-        app:layout_constraintStart_toEndOf="@+id/button9"
-        app:layout_constraintTop_toBottomOf="@+id/editTextText" />
-
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="季節限定"
-        app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintHorizontal_bias="0.448"
-        app:layout_constraintStart_toStartOf="@+id/button9"
-        app:layout_constraintTop_toBottomOf="@+id/imageView7" />
-
-    <ImageView
-        android:id="@+id/imageView7"
-        android:layout_width="114dp"
-        android:layout_height="124dp"
-        android:layout_marginTop="4dp"
-        app:layout_constraintEnd_toEndOf="@+id/button9"
-        app:layout_constraintStart_toStartOf="@+id/button9"
-        app:layout_constraintTop_toTopOf="@+id/button9"
-        app:srcCompat="@drawable/season" />
-
-    <ImageView
-        android:id="@+id/imageView11"
-        android:layout_width="114dp"
-        android:layout_height="109dp"
-        android:layout_marginTop="12dp"
-        app:layout_constraintEnd_toEndOf="@+id/sub_Btn"
-        app:layout_constraintHorizontal_bias="0.421"
-        app:layout_constraintStart_toStartOf="@+id/sub_Btn"
-        app:layout_constraintTop_toTopOf="@+id/sub_Btn"
-        app:srcCompat="@drawable/suggest" />
-
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
-        android:text="主廚推薦"
-        app:layout_constraintEnd_toEndOf="@+id/sub_Btn"
-        app:layout_constraintHorizontal_bias="0.545"
-        app:layout_constraintStart_toStartOf="@+id/sub_Btn"
-        app:layout_constraintTop_toBottomOf="@+id/imageView11" />
-
-    <ImageView
         android:id="@+id/imageView16"
         android:layout_width="104dp"
         android:layout_height="40dp"
@@ -283,6 +185,16 @@
         app:layout_constraintStart_toEndOf="@+id/textView12"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/combo_font" />
+
+    <VideoView
+        android:id="@+id/Vd_View"
+        android:layout_width="377dp"
+        android:layout_height="296dp"
+        android:layout_marginTop="68dp"
+        app:layout_constraintEnd_toEndOf="@+id/imageView16"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button3" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
