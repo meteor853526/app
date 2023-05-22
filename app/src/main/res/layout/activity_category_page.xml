@@ -74,7 +74,7 @@
         android:clickable="true"
         app:cardCornerRadius="20dp"
         app:layout_constraintStart_toEndOf="@+id/cardView"
-        android:onClick="onClickBtnJust_page"
+        android:onClick="onClickBtnJust_page_just"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -114,6 +114,7 @@
         android:background="@drawable/button_category"
         android:clickable="true"
         app:cardCornerRadius="20dp"
+        android:onClick="onClickBtnJust_page_sneak"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
@@ -153,6 +154,7 @@
         android:background="@drawable/button_category"
         android:clickable="true"
         app:cardCornerRadius="20dp"
+        android:onClick="onClickBtnJust_page_drink"
         app:layout_constraintStart_toEndOf="@+id/cardView3"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 

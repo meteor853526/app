@@ -45,6 +45,7 @@ public class Just_page extends AppCompatActivity {
 //        minus_btn = findViewById(R.id.minus_btn);
         Bundle bundle = getIntent().getExtras();
         String username = bundle.getString("account");
+        String category = bundle.getString("category");
         account = username;
 
         new Thread (new Runnable(){
@@ -56,7 +57,7 @@ public class Just_page extends AppCompatActivity {
                 ResultSet current_order;
                 try {
 
-                    data = sqLhandler.getData();
+                    data = sqLhandler.getData(category);
                     current_order = sqLhandler.getUserCurrentOrder(username);
                     runOnUiThread(new Runnable() {
                         @Override
@@ -138,7 +139,6 @@ public class Just_page extends AppCompatActivity {
 //        tv_currentOrder = findViewById(R.id.tv_currentOrder);
         List<FoodItem> foods = new ArrayList<FoodItem>();
         while (resultSet.next()) {
-
             String food_name = resultSet.getString("food_name");
             String price = resultSet.getString("price");
             int count = 0;
