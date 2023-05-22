@@ -76,11 +76,11 @@ public class MySQLhandler {
         ptmt.executeUpdate();
 
     }
-    public ResultSet getData() throws ClassNotFoundException, SQLException {
+    public ResultSet getData(String category) throws ClassNotFoundException, SQLException {
         Class.forName("com.mysql.jdbc.Driver");
         String password = "123456789";
         Connection conn = DriverManager.getConnection(URL, USERNAME, PASSWORD);
-        String sql = "SELECT * FROM food";
+        String sql = "SELECT * FROM food WHERE food_category ='"+category+"'";
         Statement getData = conn.createStatement();
         return getData.executeQuery(sql);
     }

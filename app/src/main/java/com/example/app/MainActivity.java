@@ -24,28 +24,28 @@ public class MainActivity extends AppCompatActivity {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    new Thread(new Runnable(){
-      @Override
-      public void run(){
-
-        sqLhandler.run();
-        final ResultSet data;
-        try {
-          data = sqLhandler.getData();
-        } catch (ClassNotFoundException e) {
-          throw new RuntimeException(e);
-        } catch (SQLException e) {
-          throw new RuntimeException(e);
-        }
-        //Log.v("OK",data);
-//        text_view.post(new Runnable() {
-//          public void run() {
-//            text_view.setText(data);
-//          }
-//        });
-
-      }
-    }).start();
+//    new Thread(new Runnable(){
+//      @Override
+//      public void run(){
+//
+//        sqLhandler.run();
+//        final ResultSet data;
+//        try {
+//          data = sqLhandler.getData("just");
+//        } catch (ClassNotFoundException e) {
+//          throw new RuntimeException(e);
+//        } catch (SQLException e) {
+//          throw new RuntimeException(e);
+//        }
+//        //Log.v("OK",data);
+////        text_view.post(new Runnable() {
+////          public void run() {
+////            text_view.setText(data);
+////          }
+////        });
+//
+//      }
+//    }).start();
 
 
     MainBtn = findViewById(R.id.mainpg_button);
