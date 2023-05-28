@@ -4,10 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
@@ -16,13 +16,11 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.io.FileInputStream;
-import java.io.IOException;
+import java.sql.Blob;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.SplittableRandom;
 
 public class Just_page extends AppCompatActivity {
     private ListView lvMainMeals;
@@ -45,6 +43,7 @@ public class Just_page extends AppCompatActivity {
 //        minus_btn = findViewById(R.id.minus_btn);
         Bundle bundle = getIntent().getExtras();
         String username = bundle.getString("account");
+        String category = bundle.getString("category");
         account = username;
 
         new Thread (new Runnable(){
@@ -56,7 +55,7 @@ public class Just_page extends AppCompatActivity {
                 ResultSet current_order;
                 try {
 
-                    data = sqLhandler.getData();
+                    data = sqLhandler.getData(category);
                     current_order = sqLhandler.getUserCurrentOrder(username);
                     runOnUiThread(new Runnable() {
                         @Override
@@ -98,7 +97,6 @@ public class Just_page extends AppCompatActivity {
                             current_order = sqLhandler.getUserCurrentOrder(username);
                             //tv_count
                             runOnUiThread(new Runnable() {
-                                @SuppressLint("SetTextI18n")
                                 @Override
                                 public void run() {
                                     sqLhandler.run();
@@ -139,11 +137,27 @@ public class Just_page extends AppCompatActivity {
 //        tv_currentOrder = findViewById(R.id.tv_currentOrder);
         List<FoodItem> foods = new ArrayList<FoodItem>();
         while (resultSet.next()) {
-
             String food_name = resultSet.getString("food_name");
+            final Bitmap[] bm = new Bitmap[1];
+            new Thread (new Runnable(){
+                ResultSet current_order;
+                @Override
+                public void run(){
+                    sqLhandler.run();
+                    try {
+                        ResultSet res = sqLhandler.getFoodImage(food_name);
+                        Blob byteArray = res.getBlob("food_image");
+                        byte[] decodedString = Base64.decode(byteArray.toString(), Base64.DEFAULT);
+                        bm[0] = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+
+                    } catch (ClassNotFoundException | SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                }
+            }).start();
             String price = resultSet.getString("price");
             int count = 0;
-            foods.add(new FoodItem(R.drawable.food1, food_name, Integer.parseInt(price), ""));
+            foods.add(new FoodItem(R.drawable.food1, food_name, bm[0], Integer.parseInt(price), ""));
         }
 //        StringBuilder str = new StringBuilder("");
 //        while(currentOrder.next()){
@@ -162,6 +176,7 @@ public class Just_page extends AppCompatActivity {
         while(currentOrder.next()){
             //tv_currentOrder
             String food_name = currentOrder.getString("food_name");
+            Log.v("DB",food_name);
             int count = currentOrder.getInt("count");
 
             str.append(food_name).append(" x ").append(Integer.toString(count)).append(",");
@@ -176,4 +191,5 @@ public class Just_page extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+
 }

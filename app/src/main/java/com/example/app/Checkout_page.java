@@ -5,14 +5,17 @@
 
         import android.annotation.SuppressLint;
         import android.content.Intent;
+        import android.graphics.Bitmap;
+        import android.graphics.BitmapFactory;
         import android.os.Bundle;
+        import android.util.Base64;
         import android.util.Log;
         import android.view.View;
         import android.widget.AdapterView;
         import android.widget.ListView;
         import android.widget.TextView;
-        import android.widget.Toast;
 
+        import java.sql.Blob;
         import java.sql.ResultSet;
         import java.sql.SQLException;
         import java.util.ArrayList;
@@ -112,8 +115,12 @@ public class Checkout_page extends AppCompatActivity {
             String food_name = currentOrder.getString("food_name");
             String price = currentOrder.getString("price");
             int count = currentOrder.getInt("count");
+            ResultSet res = sqLhandler.getFoodImage(food_name);
+            Blob byteArray = res.getBlob("food_image");
+            byte[] decodedString = Base64.decode(byteArray.toString(), Base64.DEFAULT);
+            Bitmap bm = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             totalPrice += Integer.parseInt(price) * count;
-            foods.add(new FoodItem(R.drawable.food1,food_name ,Integer.parseInt(price),Integer.toString(count) + "個"));
+            foods.add(new FoodItem(R.drawable.food1,food_name ,bm, Integer.parseInt(price),Integer.toString(count) + "個"));
             Log.v("DB",price);
         }
         tv_totalPrice.setText("總共: "+ Integer.toString(totalPrice) + " $");

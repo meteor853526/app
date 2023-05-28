@@ -28,13 +28,31 @@ public class Category_page extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onClickBtnJust_page(View view) {
+    public void onClickBtnJust_page_just(View view) {
         Intent intent = new Intent(Category_page.this, Just_page.class);
         Bundle bundle = new Bundle();
         bundle.putString("account",account);
+        bundle.putString("category","just");
         intent.putExtras(bundle);
         startActivity(intent);
     }
+    public void onClickBtnJust_page_sneak(View view) {
+        Intent intent = new Intent(Category_page.this, Just_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        bundle.putString("category","sneak");
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+    public void onClickBtnJust_page_drink(View view) {
+        Intent intent = new Intent(Category_page.this, Just_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        bundle.putString("category","drink");
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     public void onClickToCheckOutPage(View view) {
         Intent intent = new Intent(Category_page.this, Checkout_page.class);
         Bundle bundle = new Bundle();

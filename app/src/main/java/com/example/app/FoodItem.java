@@ -7,15 +7,19 @@ public class FoodItem {
 
     private int imageId;
     private String foodName;
+
+    private Bitmap foodImage;
+
     private int foodPrice;
     private String count;
 
     public FoodItem() {
     }
 
-    public FoodItem(int imageId, String foodName, int foodPrice,String count) {
+    public FoodItem(int imageId, String foodName, Bitmap foodImage, int foodPrice, String count) {
         this.imageId = imageId;
         this.foodName = foodName;
+        this.foodImage = foodImage;
         this.foodPrice = foodPrice;
         this.count = count;
     }
@@ -51,8 +55,13 @@ public class FoodItem {
         this.foodPrice = foodPrice;
     }
 
+    public Bitmap  getFoodImage() {
+        return foodImage;
+    }
 
-
+    public void setFoodImage(Bitmap  foodImage) {
+        this.foodImage = foodImage;
+    }
 }
 
 

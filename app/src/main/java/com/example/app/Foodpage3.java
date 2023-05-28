@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class Foodpage3 extends AppCompatActivity {
     MySQLhandler mySQLhandler = new MySQLhandler();
-    private String combo = "combo3";
+    private String combo = "小資活力套餐";
     private int price=100;
     private String account;
 
@@ -73,7 +73,7 @@ public class Foodpage3 extends AppCompatActivity {
             public void run() {
                 mySQLhandler.run();
                 try {
-                    mySQLhandler.toCart(account,combo,count,totalprice);
+                    mySQLhandler.toCart(account,combo,count,price);
 
 
 
@@ -85,11 +85,18 @@ public class Foodpage3 extends AppCompatActivity {
         Toast.makeText(this, "加入購物車成功", Toast.LENGTH_LONG).show();
 
     }
-    public void backBtn(View v) throws SQLException, ClassNotFoundException {
-
+    public void onClickToCategory_page(View view) {
         Intent intent = new Intent(Foodpage3.this, Category_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
         startActivity(intent);
-
-
+    }
+    public void onClickToCheckOutPage(View view) {
+        Intent intent = new Intent(Foodpage3.this, Checkout_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 }

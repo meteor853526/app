@@ -13,7 +13,7 @@ import java.sql.SQLException;
 
 public class Foodpage2 extends AppCompatActivity {
     MySQLhandler mySQLhandler = new MySQLhandler();
-    private String combo = "combo2";
+    private String combo = "傳統中式套餐";
     private int price=100;
     private String account;
 
@@ -57,7 +57,7 @@ public class Foodpage2 extends AppCompatActivity {
                     count=1;
                 };
                 totalprice=price*count;
-                tvPrice.setText("total: $"+totalprice);
+                tvPrice.setText("total: $"+price);
                 tvNumber.setText(""+count);
             }
         };
@@ -88,12 +88,19 @@ public class Foodpage2 extends AppCompatActivity {
 
 
     }
-    public void backBtn(View v) throws SQLException, ClassNotFoundException {
-
+    public void onClickToCategory_page(View view) {
         Intent intent = new Intent(Foodpage2.this, Category_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
         startActivity(intent);
-
-
+    }
+    public void onClickToCheckOutPage(View view) {
+        Intent intent = new Intent(Foodpage2.this, Checkout_page.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
     }
 
 }
