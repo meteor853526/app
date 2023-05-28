@@ -138,26 +138,14 @@ public class Just_page extends AppCompatActivity {
         List<FoodItem> foods = new ArrayList<FoodItem>();
         while (resultSet.next()) {
             String food_name = resultSet.getString("food_name");
-            final Bitmap[] bm = new Bitmap[1];
-            new Thread (new Runnable(){
-                ResultSet current_order;
-                @Override
-                public void run(){
-                    sqLhandler.run();
-                    try {
-                        ResultSet res = sqLhandler.getFoodImage(food_name);
-                        Blob byteArray = res.getBlob("food_image");
-                        byte[] decodedString = Base64.decode(byteArray.toString(), Base64.DEFAULT);
-                        bm[0] = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
-
-                    } catch (ClassNotFoundException | SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                }
-            }).start();
+            Blob byteArray = resultSet.getBlob("food_image");
+            byte[] arr = byteArray.getBytes(1L, (int) byteArray.length());
+            Bitmap bm = BitmapFactory.decodeByteArray(arr, 0 , (int) byteArray.length());
+//            byte[] decodedString = Base64.decode(byteArray.toString(), Base64.DEFAULT);
+//            bm[0] = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             String price = resultSet.getString("price");
             int count = 0;
-            foods.add(new FoodItem(R.drawable.food1, food_name, bm[0], Integer.parseInt(price), ""));
+            foods.add(new FoodItem(R.drawable.food1, food_name, bm, Integer.parseInt(price), ""));
         }
 //        StringBuilder str = new StringBuilder("");
 //        while(currentOrder.next()){

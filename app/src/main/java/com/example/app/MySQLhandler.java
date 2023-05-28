@@ -238,6 +238,16 @@ public class MySQLhandler {
         }
     }
 
+    public ResultSet getFoodImage(String food_name) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+        //SELECT 1 FROM table WHERE a = 1 AND b = 2 LIMIT 1
+        String sql = "SELECT food_image FROM food WHERE food_name = '" + food_name + "'";
+        Statement st = con.createStatement();
+        ResultSet rs = st.executeQuery(sql);
+        return rs;
+
+    }
 }
 
 

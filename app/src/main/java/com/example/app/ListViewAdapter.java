@@ -46,7 +46,7 @@ public class ListViewAdapter extends BaseAdapter {
 
         FoodItem food = ListFoods.get(i);
         ImageView iv = view.findViewById(R.id.iv_food);
-        iv.setImageResource(food.getImageId());
+        //iv.setImageResource(food.getImageId());
         iv.setScaleType(ImageView.ScaleType.CENTER_CROP);
         iv.setImageBitmap(food.getFoodImage());
         TextView tvFoodName = view.findViewById(R.id.tv_meal_name);
