@@ -14,6 +14,7 @@
         import android.widget.AdapterView;
         import android.widget.ListView;
         import android.widget.TextView;
+        import android.widget.Toast;
 
         import java.sql.Blob;
         import java.sql.ResultSet;
@@ -150,8 +151,6 @@ public class Checkout_page extends AppCompatActivity {
                 }
             }
         }).start();
-
+        Toast.makeText(this, "已送出訂單", Toast.LENGTH_LONG).show();
     }
-
-
 }
