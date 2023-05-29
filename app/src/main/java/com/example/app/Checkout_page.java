@@ -27,6 +27,8 @@ public class Checkout_page extends AppCompatActivity {
 
     private String account;
 
+    private  ResultSet image;
+
     public Checkout_page() throws SQLException {
     }
 
@@ -115,10 +117,9 @@ public class Checkout_page extends AppCompatActivity {
             String food_name = currentOrder.getString("food_name");
             String price = currentOrder.getString("price");
             int count = currentOrder.getInt("count");
-            ResultSet res = sqLhandler.getFoodImage(food_name);
-            Blob byteArray = res.getBlob("food_image");
-            byte[] decodedString = Base64.decode(byteArray.toString(), Base64.DEFAULT);
-            Bitmap bm = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
+            Blob byteArray = currentOrder.getBlob("food_image");
+            byte[] arr = byteArray.getBytes(1L, (int) byteArray.length());
+            Bitmap bm = BitmapFactory.decodeByteArray(arr, 0 , (int) byteArray.length());
             totalPrice += Integer.parseInt(price) * count;
             foods.add(new FoodItem(R.drawable.food1,food_name ,bm, Integer.parseInt(price),Integer.toString(count) + "個"));
             Log.v("DB",price);
@@ -127,6 +128,8 @@ public class Checkout_page extends AppCompatActivity {
         ListViewAdapter adapter1 = new ListViewAdapter(this,foods);
         lvMainMeals.setAdapter(adapter1);
     }
+
+
 
 
     public void onClickToCategory(View view) {

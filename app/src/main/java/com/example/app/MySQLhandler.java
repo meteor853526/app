@@ -174,7 +174,7 @@ public class MySQLhandler {
         Class.forName("com.mysql.jdbc.Driver");
         Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
         //SELECT 1 FROM table WHERE a = 1 AND b = 2 LIMIT 1
-        String sql = "SELECT * FROM shopping_car WHERE user = '" + user_account + "'";
+        String sql = "SELECT shopping_car.food_name,food.food_image,shopping_car.count,shopping_car.price FROM shopping_car,food WHERE shopping_car.user = '"+user_account+"' AND shopping_car.food_name = food.food_name";
         Statement st = con.createStatement();
         ResultSet rs = st.executeQuery(sql);
         return rs;
