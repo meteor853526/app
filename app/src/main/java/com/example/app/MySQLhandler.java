@@ -8,6 +8,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.*;
 public class MySQLhandler {
+    //
     private String message = null;
     private int id = 0;
 
