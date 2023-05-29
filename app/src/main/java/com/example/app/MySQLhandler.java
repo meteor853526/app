@@ -248,6 +248,29 @@ public class MySQLhandler {
         return rs;
 
     }
+    //按下送出訂單刪除資料庫資料
+    public void clearDatabaseTable(String account) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        try {
+
+            Connection con = DriverManager.getConnection(URL, USERNAME, PASSWORD);
+            String delete = "DELETE FROM shopping_car WHERE user='" + account + "'";
+            Statement st = con.createStatement();
+            st.executeUpdate(delete);
+            st.close();
+
+            Log.v("DB", "write into data_delete");
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+            Log.e("DB", "fail to delete");
+            Log.e("DB", e.toString());
+        }
+
+
+
+    }
+
 }
 
 
