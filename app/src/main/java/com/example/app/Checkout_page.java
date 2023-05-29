@@ -136,4 +136,22 @@ public class Checkout_page extends AppCompatActivity {
         intent.putExtras(bundle);
         startActivity(intent);
     }
+    public void onClickBtnClear(View view) {
+        new Thread (new Runnable(){
+
+            @Override
+            public void run() {
+                sqLhandler.run();
+                try {
+                    sqLhandler.clearDatabaseTable(account);
+
+                } catch (SQLException | ClassNotFoundException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+        }).start();
+
+    }
+
+
 }

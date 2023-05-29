@@ -33,6 +33,7 @@
             android:layout_marginLeft="100dp"
             android:backgroundTint="#E6A961"
             android:text="送出訂單"
+            android:onClick="onClickBtnClear"
             android:textColor="@color/black" />
     </LinearLayout>
 
