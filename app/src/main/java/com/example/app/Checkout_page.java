@@ -155,5 +155,11 @@ public class Checkout_page extends AppCompatActivity {
             }
         }).start();
         Toast.makeText(this, "已送出訂單", Toast.LENGTH_LONG).show();
+        Intent intent = new Intent(Checkout_page.this, MainActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putString("account",account);
+        intent.putExtras(bundle);
+        startActivity(intent);
+
     }
 }
