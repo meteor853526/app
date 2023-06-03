@@ -21,6 +21,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Just_page extends AppCompatActivity {
     private ListView lvMainMeals;
@@ -29,7 +30,7 @@ public class Just_page extends AppCompatActivity {
 
     Button add_btn;
     Button minus_btn;
-
+    TextView category_bar;
     private String account;
     public Just_page() throws SQLException {
     }
@@ -39,6 +40,7 @@ public class Just_page extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_just_page);
         lvMainMeals = findViewById(R.id.lv_main_meals);
+        category_bar = findViewById(R.id.category);
 //        add_btn = findViewById(R.id.add_btn);
 //        minus_btn = findViewById(R.id.minus_btn);
         Bundle bundle = getIntent().getExtras();
@@ -46,6 +48,13 @@ public class Just_page extends AppCompatActivity {
         String category = bundle.getString("category");
         account = username;
 
+        if(Objects.equals(category, "just")){
+            category_bar.setText("單點區");
+        }else if(Objects.equals(category, "drink")){
+            category_bar.setText("飲料區");
+        }else if(Objects.equals(category, "sneak")){
+            category_bar.setText("點心區");
+        }
         new Thread (new Runnable(){
             @Override
             public void run(){
@@ -83,14 +92,14 @@ public class Just_page extends AppCompatActivity {
                 String username = bundle.getString("account");
                 Log.v("DB","wwwwwwwwwww");
                 TextView food_name = (TextView) view.findViewById(R.id.tv_meal_name);
-                Toast.makeText(Just_page.this, username + food_name.getText(), Toast.LENGTH_SHORT).show();
+                TextView tv_meal_price = (TextView) view.findViewById(R.id.tv_meal_price);
                 new Thread (new Runnable(){
                     ResultSet current_order;
                     @Override
                     public void run(){
                         sqLhandler.run();
                         tv_currentOrder = findViewById(R.id.tv_currentOrder);
-                        TextView tv_meal_price = findViewById(R.id.tv_meal_price);
+
 
                         try {
                             sqLhandler.addItemCountIntoShopping_car(username,food_name.getText().toString(),Integer.parseInt(tv_meal_price.getText().toString().replace(" ","").replace("$","")));
@@ -134,27 +143,16 @@ public class Just_page extends AppCompatActivity {
 
     private void updateMeals(ResultSet resultSet) throws SQLException, ClassNotFoundException {
         lvMainMeals = findViewById(R.id.lv_main_meals);
-//        tv_currentOrder = findViewById(R.id.tv_currentOrder);
         List<FoodItem> foods = new ArrayList<FoodItem>();
         while (resultSet.next()) {
             String food_name = resultSet.getString("food_name");
             Blob byteArray = resultSet.getBlob("food_image");
             byte[] arr = byteArray.getBytes(1L, (int) byteArray.length());
             Bitmap bm = BitmapFactory.decodeByteArray(arr, 0 , (int) byteArray.length());
-//            byte[] decodedString = Base64.decode(byteArray.toString(), Base64.DEFAULT);
-//            bm[0] = BitmapFactory.decodeByteArray(decodedString, 0, decodedString.length);
             String price = resultSet.getString("price");
             int count = 0;
             foods.add(new FoodItem(R.drawable.food1, food_name, bm, Integer.parseInt(price), ""));
         }
-//        StringBuilder str = new StringBuilder("");
-//        while(currentOrder.next()){
-//            //tv_currentOrder
-//            String food_name = currentOrder.getString("food_name");
-//            int count = currentOrder.getInt("count");
-//
-//            str.append(food_name).append(" x ").append(Integer.toString(count)).append(",");
-//        }
         ListViewAdapter adapter1 = new ListViewAdapter(this,foods);
         lvMainMeals.setAdapter(adapter1);
     }
@@ -166,7 +164,6 @@ public class Just_page extends AppCompatActivity {
             String food_name = currentOrder.getString("food_name");
             Log.v("DB",food_name);
             int count = currentOrder.getInt("count");
-
             str.append(food_name).append(" x ").append(Integer.toString(count)).append(",");
         }
         tv_currentOrder.setText(str);
