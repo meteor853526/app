@@ -51,7 +51,7 @@
             android:text="Food" />
 
         <TextView
-            android:id="@+id/textView11"
+            android:id="@+id/category"
             android:layout_width="100dp"
             android:layout_height="37dp"
             android:layout_gravity="bottom"
@@ -80,7 +80,7 @@
             android:layout_height="64dp"
             android:layout_gravity="center"
             android:paddingLeft="30dp"
-            android:text="已選(等購物車做完)" />
+            android:text="" />
 
         <Button
             android:id="@+id/button4"
@@ -89,7 +89,7 @@
             android:layout_gravity="center"
             android:layout_marginLeft="130dp"
             android:backgroundTint="#E6A961"
-            android:text="加入購物車"
+            android:text="點擊物品 加入購物車"
             android:textColor="@color/black" />
     </LinearLayout>
 

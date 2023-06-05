@@ -26,15 +26,14 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="56dp"
         android:background="@drawable/button_category"
         android:clickable="true"
+        android:onClick="onClickBtn"
         app:cardBackgroundColor="@color/white"
         app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
-        android:onClick="onClickBtn"
-        >
+        app:layout_constraintTop_toBottomOf="@+id/textView2">
 
         <TextView
             android:id="@+id/textView6"
@@ -66,15 +65,15 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_width="161dp"
+        android:layout_height="175dp"
         android:layout_marginStart="48dp"
         android:layout_marginTop="140dp"
         android:background="@drawable/button_category"
         android:clickable="true"
+        android:onClick="onClickBtnJust_page_just"
         app:cardCornerRadius="20dp"
         app:layout_constraintStart_toEndOf="@+id/cardView"
-        android:onClick="onClickBtnJust_page_just"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
@@ -108,13 +107,13 @@
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView3"
         android:layout_width="160dp"
-        android:layout_height="wrap_content"
+        android:layout_height="177dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/button_category"
         android:clickable="true"
-        app:cardCornerRadius="20dp"
         android:onClick="onClickBtnJust_page_sneak"
+        app:cardCornerRadius="20dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/cardView">
 
@@ -134,7 +133,7 @@
         <ImageButton
             android:id="@+id/imageButton4"
             android:layout_width="match_parent"
-            android:layout_height="140dp"
+            android:layout_height="122dp"
             android:layout_margin="5dp"
             android:adjustViewBounds="true"
             android:background="@drawable/button_background"
@@ -150,11 +149,11 @@
         android:layout_width="160dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="48dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="44dp"
         android:background="@drawable/button_category"
         android:clickable="true"
-        app:cardCornerRadius="20dp"
         android:onClick="onClickBtnJust_page_drink"
+        app:cardCornerRadius="20dp"
         app:layout_constraintStart_toEndOf="@+id/cardView3"
         app:layout_constraintTop_toBottomOf="@+id/cardView2">
 
