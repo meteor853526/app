@@ -13,5 +13,5 @@
 ![image](https://github.com/meteor853526/app/assets/75241765/5110c90c-cd4a-4972-8219-cbd8338c85d5)
 
 #UI設計Figma分享網址
-![image](https://github.com/meteor853526/app/assets/75241765/f3e3f412-8a97-41f4-94f0-7482901d4c34)
+https://www.figma.com/file/oHSytR9FUbV9YAe3na0PCx/APP-COURSE-TEMPLATE?type=design&node-id=0-1&mode=design&t=BLNrWCuusu8W7szX-0
 
